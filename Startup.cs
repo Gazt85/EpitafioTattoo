@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using EpitafioTattoo.Data;
+using Syncfusion.Blazor;
 
 namespace EpitafioTattoo
 {
@@ -29,11 +30,14 @@ namespace EpitafioTattoo
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSyncfusionBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzQ3MTUzQDMxMzgyZTMzMmUzMEVKQ0JvZThSRDYyZGpLMUdHeTNTakphSzJtekgwUG03dGN5NDRQV1lEckU9;MzQ3MTU0QDMxMzgyZTMzMmUzMGZIQTJqQU91Q1BUbmMzMmNGRXhqMmxTYWpST085SWd2SkNvcmNmYXdvamM9;MzQ3MTU1QDMxMzgyZTMzMmUzMEovQTErMExuV3ZXN2VrU0JtVFVxeXAxQWE2bFZkbldXSnJEUjVPeXJKSG89;MzQ3MTU2QDMxMzgyZTMzMmUzMGVQOFNUUWlEdzV3T1Q3bktpMGFVMmt4M1c5bWhVNGU5eFFIeVRTWlJmMVE9");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
