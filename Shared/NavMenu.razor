@@ -1,37 +1,144 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">EpitafioTattoo</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
+﻿@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Buttons
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-    </ul>
-</div>
+<SfSidebar @ref="sidebarObj" Width="280px" @bind-IsOpen="SidebarToggle">
+    <ChildContent>
+        <span class="e-avatar e-avatar-large image">
+            <img src="/img/TattooStudio Logo.jpeg" />
+        </span>
 
-@code {
-    private bool collapseNavMenu = true;
+        <SfAccordion>
+            <AccordionItems>
+                <AccordionItem Header="Eka Epitafio" Expanded="false">
+                    <a href="bio"> </a>
+                </AccordionItem>
+                <AccordionItem Header="Galería" Expanded="false">
+                    <ContentTemplate>
+                        <ul>
+                            <li><span class="e-icons e-content-icon">Tatuajes</span>  </li>
+                            <li><span class="e-icons e-content-icon">Piercing</span>  </li>
+                        </ul>
+                    </ContentTemplate>
+                </AccordionItem>
+                <AccordionItem Header="Agenda">
+                    <a href="agenda"> </a>
+                </AccordionItem>
+                <AccordionItem Header="Preguntas Frecuentes">
+                    <a href="faq"> </a>
+                </AccordionItem>
+                <AccordionItem Header="Blog">
+                    <a href="blog"> </a>
+                </AccordionItem>
+                <AccordionItem Header="Artwork">
+                    <ContentTemplate>
+                        <ul>
+                            <li><span>Diseños Digitales</span> </li>
+                            <li><span>Pinturas</span>  </li>
+                        </ul>
+                    </ContentTemplate>
+                </AccordionItem>
+                <AccordionItem Header="Merchandising">
+                    <a href="merchandising"> </a>
+                </AccordionItem>
+                <AccordionItem Header="Videos">
+                    <a href="videos"> </a>
+                </AccordionItem>
+                <AccordionItem Header="Contacto">
+                    <a href="contacto"> </a>
+                </AccordionItem>
+            </AccordionItems>
+        </SfAccordion>
+    </ChildContent>
+</SfSidebar>
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+@code{
+    SfSidebar sidebarObj;
+    public string Target = ".maincontent";
+    public bool SidebarToggle = false;
 
-    private void ToggleNavMenu()
+    public void Toggle()
     {
-        collapseNavMenu = !collapseNavMenu;
+        SidebarToggle = !SidebarToggle;
     }
 }
+
+<style>
+
+    /* Sidebar styles  */
+    .e-sidebar {
+        background-color: #f5f5f5;
+        color: black;
+    }
+
+    li {
+        list-style-type: none !important;
+    }
+
+    .text-content {
+        font-size: 30px;
+        padding: 3rem;
+    }
+
+    .e-tbar-search-icon:before {
+        content: "\ec0d";
+        color: white;
+        font-size: 16px;
+    }
+
+    .e-tbar-settings-icon:before {
+        content: "\e679";
+        color: white;
+        font-size: 16px;
+    }
+
+    .e-tbar-menu-icon:before {
+        content: "\e718";
+        color: white;
+        font-size: 16px;
+    }
+
+    .e-toolbar .e-toolbar-items, .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn {
+        background-color: midnightblue;
+        color: white;
+        font-size: 16px;    
+    }
+
+    .main > div {
+        padding: 0px !important;
+    }
+
+    .e-avatar.image {      
+        background-image: url('file:///C:\Users\Administrador\source\repos\EpitafioTattoo\wwwroot\img\Eka logo.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: auto;
+        margin-left: 35%;
+        margin-top: 15px;
+        font-size: 2.5em !important;
+        overflow: visible !important;
+    }
+
+    .loading {      
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: auto;
+        margin-left: 45%;
+        margin-top: 5px;
+        font-size: 2.5em !important;
+        width: 85px;
+        height: 85px;
+    }
+
+    .e-acrdn-content li {
+        height: 28px !important;
+        line-height: 28px !important;
+        font-size: 16px;
+    }
+
+        .e-acrdn-content li, .e-acrdn-content li .e-content-icon:hover {
+            cursor: pointer;
+            color: #e3165b;
+        }
+</style>
