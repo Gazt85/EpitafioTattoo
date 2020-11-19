@@ -1,21 +1,22 @@
 ﻿@using Syncfusion.Blazor.Navigations
 @using Syncfusion.Blazor.Buttons
 
+
 <SfSidebar @ref="sidebarObj" Width="280px" @bind-IsOpen="SidebarToggle">
     <ChildContent>
         <span class="e-avatar e-avatar-large image">
-            <img src="/img/TattooStudio Logo.jpeg" />
+            <img src="/img/TattooStudio Logo.jpeg" />           
         </span>
+
 
         <SfAccordion>
             <AccordionItems>
                 <AccordionItem Header="Eka Epitafio" Expanded="false">
-                    <a href="bio"> </a>
                 </AccordionItem>
                 <AccordionItem Header="Galería" Expanded="false">
                     <ContentTemplate>
                         <ul>
-                            <li><span class="e-icons e-content-icon">Tatuajes</span>  </li>
+                            <li><span  class="e-icons e-content-icon">Tatuajes</span>  </li>
                             <li><span class="e-icons e-content-icon">Piercing</span>  </li>
                         </ul>
                     </ContentTemplate>
@@ -55,10 +56,16 @@
     SfSidebar sidebarObj;
     public string Target = ".maincontent";
     public bool SidebarToggle = false;
+    NavigationManager NavigationManager;
 
     public void Toggle()
     {
         SidebarToggle = !SidebarToggle;
+    }
+
+    private void Navigate()
+    {
+        NavigationManager.NavigateTo("/index");
     }
 }
 
@@ -66,7 +73,7 @@
 
     /* Sidebar styles  */
     .e-sidebar {
-        background-color: #f5f5f5;
+        background-color: whitesmoke;
         color: black;
     }
 
@@ -131,14 +138,22 @@
         height: 85px;
     }
 
+    .e-accordion {
+        background-color: whitesmoke !important;
+    }
+
     .e-acrdn-content li {
         height: 28px !important;
         line-height: 28px !important;
         font-size: 16px;
     }
 
+        .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-content{
+            color:black;
+        }
+
         .e-acrdn-content li, .e-acrdn-content li .e-content-icon:hover {
             cursor: pointer;
-            color: #e3165b;
+            color: black !important;
         }
 </style>
