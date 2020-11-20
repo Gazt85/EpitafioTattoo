@@ -1,0 +1,12 @@
+﻿@page "/gallery/{Subgallery}"
+@layout MainLayout
+
+<h3>Galería</h3>
+<hr />
+<div style="text-align:end">
+    @foreach (var fileItem in Directory.GetFiles())
+    {
+        string imgPath = $"/img/{Subgallery}/{fileItem.Name}";        
+            <Thumbnail Source=@imgPath />
+    }
+</div>

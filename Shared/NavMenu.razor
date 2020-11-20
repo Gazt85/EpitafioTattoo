@@ -1,22 +1,20 @@
-﻿@using Syncfusion.Blazor.Navigations
-@using Syncfusion.Blazor.Buttons
+﻿
 
 
-<SfSidebar @ref="sidebarObj" Width="280px" @bind-IsOpen="SidebarToggle">
+<SfSidebar @ref="Sidebar" Width="280px" @bind-IsOpen="SidebarToggle">
     <ChildContent>
         <span class="e-avatar e-avatar-large image">
             <img src="/img/TattooStudio Logo.jpeg" />           
         </span>
-
-
         <SfAccordion>
             <AccordionItems>
+                <AccordionEvents Clicked="OnclickHandler"> </AccordionEvents>
                 <AccordionItem Header="Eka Epitafio" Expanded="false">
                 </AccordionItem>
                 <AccordionItem Header="Galería" Expanded="false">
                     <ContentTemplate>
                         <ul>
-                            <li><span  class="e-icons e-content-icon">Tatuajes</span>  </li>
+                            <li><a href="/gallery/tattoo"><span class="e-icons e-content-icon">Tatuajes</span></a>  </li>
                             <li><span class="e-icons e-content-icon">Piercing</span>  </li>
                         </ul>
                     </ContentTemplate>
@@ -51,23 +49,6 @@
         </SfAccordion>
     </ChildContent>
 </SfSidebar>
-
-@code{
-    SfSidebar sidebarObj;
-    public string Target = ".maincontent";
-    public bool SidebarToggle = false;
-    NavigationManager NavigationManager;
-
-    public void Toggle()
-    {
-        SidebarToggle = !SidebarToggle;
-    }
-
-    private void Navigate()
-    {
-        NavigationManager.NavigateTo("/index");
-    }
-}
 
 <style>
 
