@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Syncfusion.Blazor.Inputs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,9 +24,23 @@ namespace EpitafioTattoo.Pages
         protected override async Task OnInitializedAsync()
         {
             Directory = new DirectoryInfo(@$"{Environment.CurrentDirectory}\wwwroot\img\{Subgallery}");
+        }
 
+        #endregion
 
-        }       
+        #region Private Methods
+
+        private void OnChange(UploadChangeEventArgs args)
+        {
+            foreach (var file in args.Files)
+            {
+                string path = @$"{Directory}\{file.FileInfo.Name}";
+                FileStream filestream = new FileStream(path, FileMode.Create, FileAccess.Write);
+                file.Stream.WriteTo(filestream);
+                filestream.Close();
+                file.Stream.Close();
+            }
+        }
 
         #endregion
     }
