@@ -15,9 +15,13 @@ namespace EpitafioTattoo.Shared
         public SfSidebar Sidebar { get; set; }
         public string Target { get; set; } = ".maincontent";
         public bool SidebarToggle { get; set; } = false;
+        public string piercing { get; set; } = "piercing";
+        public string tattoo { get; set; } = "tattoo";
         [Inject] protected NavigationManager NavigationManager { get; set; }
 
         #endregion
+
+        #region Public Methods
 
         public void Toggle()
         {
@@ -41,8 +45,31 @@ namespace EpitafioTattoo.Shared
                     NavigationManager.NavigateTo("/fetchdata");
                     break;
             }
-
         }
+
+        #endregion
+
+        #region Private Methods
+
+        private void Navigate(string dest)
+        {
+            switch (dest)
+            {
+                case "piercing":
+                    NavigationManager.NavigateTo("/index");
+                    NavigationManager.NavigateTo($"gallery/{piercing}");
+                    break;
+
+                case "tattoo":
+                    NavigationManager.NavigateTo("/index");
+                    NavigationManager.NavigateTo($"gallery/{tattoo}");
+                    break;
+            }
+        }
+
+        #endregion
+
+     
 
 
     }

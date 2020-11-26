@@ -14,8 +14,8 @@
                 <AccordionItem Header="Galería" Expanded="false">
                     <ContentTemplate>
                         <ul>
-                            <li><a href="/gallery/tattoo"><span class="e-icons e-content-icon">Tatuajes</span></a>  </li>
-                            <li><span class="e-icons e-content-icon">Piercing</span>  </li>
+                            <li @onclick="() =>Navigate(tattoo)">Tatuajes<span class="e-icons e-content-icon"></span> </li>
+                            <li @onclick="() =>Navigate(piercing)">Piercing<span class="e-icons e-content-icon"></span>  </li>
                         </ul>
                     </ContentTemplate>
                 </AccordionItem>

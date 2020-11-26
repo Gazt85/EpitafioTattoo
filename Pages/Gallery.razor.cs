@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace EpitafioTattoo.Pages
 {
@@ -14,17 +15,25 @@ namespace EpitafioTattoo.Pages
 
         [Parameter]
         public string Subgallery { get; set; }
-
+        //[Inject]
+        //public SignInManager<IdentityUser> SignInManager { get; set; }
+        //[Inject]
+        //public UserManager<IdentityUser> UserManager { get; set; }
         public DirectoryInfo Directory { get; set; }
 
         #endregion
 
-        #region LifeCycle Methods
+        #region LifeCycle Methods        
 
         protected override async Task OnInitializedAsync()
         {
             Directory = new DirectoryInfo(@$"{Environment.CurrentDirectory}\wwwroot\img\{Subgallery}");
-        }
+        }      
+
+        //public override async Task SetParametersAsync(ParameterView parameters)
+        //{
+        //    await base.SetParametersAsync(parameters);
+        //}
 
         #endregion
 

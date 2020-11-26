@@ -2,18 +2,36 @@
 @layout MainLayout
 @using Syncfusion.Blazor.Inputs
 
+
 <h3>Galería</h3>
 <hr />
+<div class="offset-1 gallery-body">
+    @if (!Directory.EnumerateFiles().Any())
+    {
+        <p>Aún no hay imagenes en esta sección...</p>
+    }
+    else
+    {
+        //if (SignInManager.IsSignedIn(User))
+        //{
+        <div ID="DropArea">
+            Arrastra los archivos aqui para subirlos
+        </div>
 
-<div ID="DropArea">
-    Arrastra los archivos aqui para subirlos
+        <SfUploader ID="UploadFiles" AutoUpload=false DropArea="#DropArea" DirectoryUpload="false">
+            <UploaderEvents ValueChange="OnChange"></UploaderEvents>
+        </SfUploader>
+        //}
+
+        <div class="offset-1">
+            @foreach (var fileItem in Directory.GetFiles())
+            {
+                string imgPath = $"/img/{Subgallery}/{fileItem.Name}";
+                <Thumbnail Source=@imgPath />
+            }
+        </div>
+    }
 </div>
-
-<SfUploader ID="UploadFiles" AutoUpload=false DropArea="#DropArea" DirectoryUpload="false">
-    <UploaderEvents ValueChange="OnChange" ></UploaderEvents>
-    @*<UploaderAsyncSettings  SaveUrl="api/SampleData/Save" RemoveUrl="api/SampleData/Remove"></UploaderAsyncSettings>*@
-</SfUploader>
-
 <style>
     #DropArea {
         padding: 50px 25px;
@@ -40,11 +58,3 @@
     }
 </style>
 
-
-<div style="text-align:end">
-    @foreach (var fileItem in Directory.GetFiles())
-    {
-        string imgPath = $"/img/{Subgallery}/{fileItem.Name}";
-        <Thumbnail Source=@imgPath />
-    }
-</div>
