@@ -56,12 +56,12 @@ namespace EpitafioTattoo.Shared
             switch (dest)
             {
                 case "piercing":
-                    NavigationManager.NavigateTo("/index");
+                    NavigationManager.NavigateTo("/loader");
                     NavigationManager.NavigateTo($"gallery/{piercing}");
                     break;
 
                 case "tattoo":
-                    NavigationManager.NavigateTo("/index");
+                    NavigationManager.NavigateTo("/loader");
                     NavigationManager.NavigateTo($"gallery/{tattoo}");
                     break;
             }

@@ -6,23 +6,23 @@
 <h3>Galería</h3>
 <hr />
 <div class="offset-1 gallery-body">
+    @*//@if (SignInManager.IsSignedIn(User))*@
+   
+    <div ID="DropArea">
+        Arrastra los archivos aqui para subirlos
+    </div>
+
+    <SfUploader ID="UploadFiles" AutoUpload=false DropArea="#DropArea" DirectoryUpload="false">
+        <UploaderEvents ValueChange="OnChange"></UploaderEvents>
+    </SfUploader>
+   
+
     @if (!Directory.EnumerateFiles().Any())
     {
         <p>Aún no hay imagenes en esta sección...</p>
     }
     else
     {
-        //if (SignInManager.IsSignedIn(User))
-        //{
-        <div ID="DropArea">
-            Arrastra los archivos aqui para subirlos
-        </div>
-
-        <SfUploader ID="UploadFiles" AutoUpload=false DropArea="#DropArea" DirectoryUpload="false">
-            <UploaderEvents ValueChange="OnChange"></UploaderEvents>
-        </SfUploader>
-        //}
-
         <div class="offset-1">
             @foreach (var fileItem in Directory.GetFiles())
             {
