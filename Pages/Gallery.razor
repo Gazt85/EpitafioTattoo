@@ -27,7 +27,7 @@
             @foreach (var fileItem in Directory.GetFiles())
             {
                 string imgPath = $"/img/{Subgallery}/{fileItem.Name}";
-                <Thumbnail Source=@imgPath />
+                <Thumbnail Source=@imgPath/>
             }
         </div>
     }
