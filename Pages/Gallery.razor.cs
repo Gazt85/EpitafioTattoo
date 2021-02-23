@@ -25,7 +25,7 @@ namespace EpitafioTattoo.Pages
 
         #region LifeCycle Methods        
 
-        protected override async Task OnInitializedAsync()
+        protected override void  OnInitialized()
         {
             Directory = new DirectoryInfo(@$"{Environment.CurrentDirectory}\wwwroot\img\{Subgallery}");
         }      

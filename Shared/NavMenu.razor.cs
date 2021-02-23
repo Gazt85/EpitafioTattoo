@@ -42,7 +42,7 @@ namespace EpitafioTattoo.Shared
                     break;
 
                 case "Agenda":
-                    NavigationManager.NavigateTo("/fetchdata");
+                    NavigationManager.NavigateTo("/agenda");
                     break;
             }
         }

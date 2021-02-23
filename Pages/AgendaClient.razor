@@ -1,0 +1,73 @@
+﻿@page "/agenda"
+@layout MainLayout
+
+<h1>Datos necesarios para cotizar tu trabajo</h1>
+<hr />
+
+<EditForm Model="Appointment" OnValidSubmit="HandleSubmit" class="max-w-lg">
+    <DataAnnotationsValidator />
+    <div class="mb-4">
+        <label for="FirstName">Nombre:</label>
+        <InputText id="txtFirstName" class="border w-full" @bind-Value="Appointment.FirstName" />
+    </div>
+    <div class="mb-4">
+        <label for="LastName">Apellido:</label>
+        <InputText id="txtLastName" class="border w-full" @bind-Value="Appointment.LastName" />
+    </div>
+    <div class="mb-4">
+        <label for="Phone">Telefono:</label>
+        <InputText id="txtPhone" class="border w-full" @bind-Value="Appointment.Phone" />
+    </div>
+    <div class="mb-4">
+        <br />
+        <InputTextArea class="border" id="txtDescription" placeholder="Agrega una descripcion de tu idea y preferencias de composición" @bind-Value="Appointment.TattooDescription" style="width:500px; height: 150px;" />
+    </div>
+    <div class="mb-4">
+        <SfCheckBox Label="¿Tienes Tatuajes previos o cicatrices en la zona a tatuar?" @bind-Checked="Appointment.HasPreviousTattoos"></SfCheckBox>
+    </div>
+    <div class="mb-4">
+        <label for="Measure">Medida del tatuaje en cms:</label>
+        <InputNumber id="txtMeasure" class="border w-full" @bind-Value="Appointment.TattooDimension" />
+    </div>
+    <div class="mb-2">        
+            <div id="wrapper" class="datepicker-section">
+                <div id="datepicker-control">
+                    <SfDatePicker TValue="DateTime?" Min="@MinDate" Max="@MaxDate" Placeholder="Seleccione el dia">
+                        <DatePickerEvents TValue="DateTime?" OnRenderDayCell="@DisableSundays"></DatePickerEvents>
+                    </SfDatePicker>
+                </div>
+            </div>        
+    </div>
+    <div class="mb-4">
+        <div class="timepicker-section">
+            <div id="wrapper" class="timepicker-control">
+                <div class="tabs-wrap">
+                    <div class="wrap">
+                        <SfTimePicker TValue="DateTime?"  Min="MinTime" Max="MaxTime" Step=30 Format="HH:mm" Placeholder="Selecciona la hora">                           
+                        </SfTimePicker>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+</EditForm>
+
+
+
+<style>
+    #wrapper {
+        max-width: 300px;
+        margin: 0px auto;
+        padding-top: 20px;
+    }
+
+    .tabs-wrap {
+        padding: 0 0px 10px;
+    }
+
+    .e-bigger .control-section {
+        margin-top: 60px;
+    }
+</style>
+
+
