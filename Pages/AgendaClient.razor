@@ -2,54 +2,127 @@
 @layout MainLayout
 
 <h1>Datos necesarios para cotizar tu trabajo</h1>
+@*Ver de usar textbox de Syncfusion: https://www.syncfusion.com/blazor-components/blazor-textbox*@
 <hr />
 
 <EditForm Model="Appointment" OnValidSubmit="HandleSubmit" class="max-w-lg">
     <DataAnnotationsValidator />
-    <div class="mb-4">
-        <label for="FirstName">Nombre:</label>
-        <InputText id="txtFirstName" class="border w-full" @bind-Value="Appointment.FirstName" />
-    </div>
-    <div class="mb-4">
-        <label for="LastName">Apellido:</label>
-        <InputText id="txtLastName" class="border w-full" @bind-Value="Appointment.LastName" />
-    </div>
-    <div class="mb-4">
-        <label for="Phone">Telefono:</label>
-        <InputText id="txtPhone" class="border w-full" @bind-Value="Appointment.Phone" />
-    </div>
-    <div class="mb-4">
-        <br />
-        <InputTextArea class="border" id="txtDescription" placeholder="Agrega una descripcion de tu idea y preferencias de composición" @bind-Value="Appointment.TattooDescription" style="width:500px; height: 150px;" />
-    </div>
-    <div class="mb-4">
-        <SfCheckBox Label="¿Tienes Tatuajes previos o cicatrices en la zona a tatuar?" @bind-Checked="Appointment.HasPreviousTattoos"></SfCheckBox>
-    </div>
-    <div class="mb-4">
-        <label for="Measure">Medida del tatuaje en cms:</label>
-        <InputNumber id="txtMeasure" class="border w-full" @bind-Value="Appointment.TattooDimension" />
-    </div>
-    <div class="mb-2">        
-            <div id="wrapper" class="datepicker-section">
-                <div id="datepicker-control">
+    <div class="col-lg-12 control-section">
+        <div class="content-wrapper">
+            <div class="row mb-4">
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <SfTextBox Placeholder="Nombre" FloatLabelType="@FloatLabelType.Auto" @bind-Value="Appointment.Client.FirstName"></SfTextBox>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <SfTextBox CssClass="e-rtl" Placeholder="Apellido" FloatLabelType="@FloatLabelType.Auto" @bind-Value="Appointment.Client.LastName"></SfTextBox>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <SfTextBox Placeholder="Telefono" FloatLabelType="@FloatLabelType.Auto" @bind-Value="Appointment.Client.Phone"></SfTextBox>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <SfTextBox CssClass="e-rtl" Placeholder="Apellido" FloatLabelType="@FloatLabelType.Auto" @bind-Value="Appointment.Client.Email"></SfTextBox>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <SfNumericTextBox CssClass="e-rtl" Placeholder="Altura del tatuaje en cms" FloatLabelType="@FloatLabelType.Always" @bind-Value="Appointment.TattooHeight"></SfNumericTextBox>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <SfNumericTextBox CssClass="e-rtl" Placeholder="Ancho del tatuaje en cms" FloatLabelType="@FloatLabelType.Always" @bind-Value="Appointment.TattooWidth"></SfNumericTextBox>
+                </div>
+            </div>
+            <div class="row col-12 mb-4">
+                <div class="col-lg-12">
+                    <div class="content wrapper">
+                        <SfTextBox Placeholder="Agrega una descripción de tu idea y preferencias de composición" FloatLabelType="@FloatLabelType.Auto" Multiline="true"></SfTextBox>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                    <p><h4>¿Tienes Tatuajes previos o cicatrices en la zona a tatuar?</h4></p>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                    <SfRadioButton Label="Si" Name="options" Value="true" @bind-Checked="Appointment.HasPreviousTattoos"></SfRadioButton>
+                    <SfRadioButton Label="No" Name="options" Value="false" @bind-Checked="Appointment.HasPreviousTattoos"></SfRadioButton>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                    <p><h4>Selecciona fecha y hora para tatuarte</h4></p>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
                     <SfDatePicker TValue="DateTime?" Min="@MinDate" Max="@MaxDate" Placeholder="Seleccione el dia">
                         <DatePickerEvents TValue="DateTime?" OnRenderDayCell="@DisableSundays"></DatePickerEvents>
                     </SfDatePicker>
                 </div>
-            </div>        
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <SfTimePicker TValue="DateTime?" Min="MinTime" Max="MaxTime" Step=30 Format="HH:mm" Placeholder="Selecciona la hora">
+                    </SfTimePicker>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    @*<div class="mb-4">
+            <label for="FirstName" style="text-align: start;">Nombre:</label>
+            <br />
+            <InputText id="txtFirstName" class="border w-full" @bind-Value="Appointment.FirstName" />
+        </div>
+        <div class="mb-4">
+            <label for="LastName">Apellido:</label>
+            <InputText id="txtLastName" class="border w-full" @bind-Value="Appointment.LastName" />
+        </div>
+        <div class="mb-4">
+            <label for="Phone">Telefono:</label>
+            <InputText id="txtPhone" class="border w-full" @bind-Value="Appointment.Phone" />
+        </div>*@
+    @*<div class="mb-4">
+        <label for="Description">Descripción</label>
+        <InputTextArea class="border" id="txtDescription" placeholder="Agrega una descripción de tu idea y preferencias de composición" @bind-Value="Appointment.TattooDescription" style="width:500px; height: 150px;" />
+    </div>
+    <div class="mb-4">
+        <label for="HasPreviouTattoos">¿Tienes Tatuajes previos o cicatrices en la zona a tatuar?</label>
+        <br />
+        <SfCheckBox @bind-Checked="Appointment.HasPreviousTattoos"></SfCheckBox>
+    </div>
+    <div class="mb-4">
+        <label for="Measure">Medidas</label>
+        <InputNumber id="txtMeasure" placeholder="Medida del tatuaje en cms" class="border w-full" @bind-Value="Appointment.TattooHeight" />
+    </div>
+    <div class="mb-2">
+        <div id="wrapper" class="datepicker-section">
+            <div id="datepicker-control">
+                <label>Dia:</label>
+                <SfDatePicker TValue="DateTime?" Min="@MinDate" Max="@MaxDate" Placeholder="Seleccione el dia">
+                    <DatePickerEvents TValue="DateTime?" OnRenderDayCell="@DisableSundays"></DatePickerEvents>
+                </SfDatePicker>
+            </div>
+        </div>
     </div>
     <div class="mb-4">
         <div class="timepicker-section">
             <div id="wrapper" class="timepicker-control">
                 <div class="tabs-wrap">
                     <div class="wrap">
-                        <SfTimePicker TValue="DateTime?"  Min="MinTime" Max="MaxTime" Step=30 Format="HH:mm" Placeholder="Selecciona la hora">                           
+                        <label>Hora:</label>
+                        <SfTimePicker TValue="DateTime?" Min="MinTime" Max="MaxTime" Step=30 Format="HH:mm" Placeholder="Selecciona la hora">
                         </SfTimePicker>
                     </div>
                 </div>
             </div>
-        </div>       
+        </div>
+    </div>*@
+    <br />
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary">Agendar</button>
+        <button type="reset" class="btn btn-danger">Cancelar</button>
     </div>
+    <ValidationSummary />
+
 </EditForm>
 
 

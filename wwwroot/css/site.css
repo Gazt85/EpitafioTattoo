@@ -30,6 +30,7 @@ app {
 .main {
     flex: 1;
     background-color: ghostwhite;
+    margin-left: 250px !important;
 }
 
     .main .top-row {
