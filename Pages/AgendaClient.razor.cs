@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Syncfusion.Blazor.Inputs;
-
+using System.IO;
 
 namespace EpitafioTattoo.Pages
 {
@@ -16,6 +16,7 @@ namespace EpitafioTattoo.Pages
 
         public Appointment Appointment { get; set; } = new Appointment();
         public bool HasPreviousTattoos { get; set; }
+        public DirectoryInfo Directory { get; set; }
         public DateTime MinDate { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
         public DateTime MaxDate { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1,1);
         public DateTime MinTime { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 14, 00, 00);
@@ -28,6 +29,7 @@ namespace EpitafioTattoo.Pages
         protected override void OnInitialized()
         {
             HasPreviousTattoos = Appointment.HasPreviousTattoos;
+            Directory = new DirectoryInfo(@$"{Environment.CurrentDirectory}\wwwroot\img\region");
         }
 
         protected async Task HandleSubmit()
@@ -38,6 +40,18 @@ namespace EpitafioTattoo.Pages
         #endregion
 
         #region Events
+
+        private void OnChange(UploadChangeEventArgs args)
+        {
+            foreach (var file in args.Files)
+            {
+                string path = @$"{Directory}\{file.FileInfo.Name}";
+                FileStream filestream = new FileStream(path, FileMode.Create, FileAccess.Write);
+                file.Stream.WriteTo(filestream);
+                filestream.Close();
+                file.Stream.Close();
+            }
+        }
 
         /// <summary>
         /// This method is a call back function used by 
