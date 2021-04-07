@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\img\region\" />
     <Folder Include="wwwroot\img\piercing\" />
     <Folder Include="wwwroot\img\tattoo\" />
   </ItemGroup>
