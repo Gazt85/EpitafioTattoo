@@ -7,12 +7,11 @@ namespace EpitafioTattoo.Models
 {
     public class Appointment
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Phone { get; set; }
+        public Client Client { get; set; } = new Client();
         public string TattooDescription { get; set; }
         public bool HasPreviousTattoos { get; set; }
-        public double TattooDimension { get; set; }
+        public double TattooHeight { get; set; }
+        public double TattooWidth { get; set; }
         public DateTime Date { get; set; }
         public string Photo { get; set; }
 
