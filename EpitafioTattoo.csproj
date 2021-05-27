@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazored.Modal" Version="6.0.1" />
     <PackageReference Include="Syncfusion.Blazor" Version="18.3.0.47" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\img\region\" />
     <Folder Include="wwwroot\img\piercing\" />
     <Folder Include="wwwroot\img\tattoo\" />
   </ItemGroup>
