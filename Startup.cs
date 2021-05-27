@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using EpitafioTattoo.Data;
 using Syncfusion.Blazor;
+using Blazored.Modal;
 
 namespace EpitafioTattoo
 {
@@ -31,6 +32,7 @@ namespace EpitafioTattoo
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddSyncfusionBlazor();
+            services.AddBlazoredModal();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

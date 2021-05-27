@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazored.Modal;
+using Blazored.Modal.Services;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +17,20 @@ namespace EpitafioTattoo.Shared
         [Parameter]
         public string Source { get; set; }
 
+        [CascadingParameter] public IModalService Modal { get; set; }
+
         #endregion
 
         #region Private Methods
 
         private void Maximize()
         {
-            //Llamar a un modal que muestre la foto maximizada y tenga boton para cerrar.
+            var parameters = new ModalParameters();
+            parameters.Add(nameof(CustomImageModal.Source), Source);
+
+            var options = new ModalOptions { ContentScrollable = true };
+
+            Modal.Show<CustomImageModal>("", parameters,options);
         }
 
         #endregion
