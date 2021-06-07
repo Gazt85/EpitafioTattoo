@@ -30,6 +30,8 @@ namespace EpitafioTattoo.Pages
         {
             HasPreviousTattoos = Appointment.HasPreviousTattoos;
             Directory = new DirectoryInfo(@$"{Environment.CurrentDirectory}\wwwroot\img\region");
+
+            //Precargar los textbox con los datos del cliente logueado, si existe.
         }
 
         protected async Task HandleSubmit()

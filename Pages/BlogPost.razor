@@ -1,0 +1,15 @@
+﻿@page "/blogpost/{Id:guid}"
+
+<div class="row mb-2">
+    <div class="col-md-12">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">@BlogPostModel.Title</h3>
+                <h6 class="mb-1 text-muted">@BlogPostModel.Date.ToString("dd/MM/yyyy")</h6>
+                <p class="card-text mb-auto">@BlogPostModel.Description</p>
+            </div>           
+        </div>
+        <a href="blog">@_back</a>
+    </div>
+
+</div>
