@@ -1,0 +1,16 @@
+﻿@page "/video"
+@layout MainLayout
+
+@if (!VideoItems.Any())
+{
+    <p>Aún no hay elementos en esta seccion.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in VideoItems)
+        {
+            <VideoItem Title="@item.Title" Description="@item.Description" Date="@item.Date" ImageSource="@item.ImageSource" Link="@item.Link" />
+        }
+    </div>
+}

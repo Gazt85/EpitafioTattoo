@@ -30,19 +30,16 @@ namespace EpitafioTattoo.Pages
         {
             HasPreviousTattoos = Appointment.HasPreviousTattoos;
             Directory = new DirectoryInfo(@$"{Environment.CurrentDirectory}\wwwroot\img\region");
+
+            //Precargar los textbox con los datos del cliente logueado, si existe.
         }
 
         protected async Task HandleSubmit()
-        {
-            DateTime date = Appointment.Date.GetValueOrDefault();
+        {           
+            Appointment.DateAndTime = GetDateTime();
 
-            DateTime time = Appointment.Time.GetValueOrDefault();
-
-            Appointment.DateAndTime = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
-
-            //Crear nuevo cliente a partir de los datos disponibles para crear un cliente.
-
-        }
+            var client = new Client(Appointment.FirstName,Appointment.LastName,Appointment.Phone,Appointment.Email);
+        }        
 
         #endregion
 
@@ -86,6 +83,24 @@ namespace EpitafioTattoo.Pages
             }
         }
 
+
+        #endregion
+
+        #region Auxiliary
+
+        /// <summary>
+        /// Gets the appointment Date and appointment Time to
+        /// create the data for the Appointment.DateTime
+        /// </summary>
+        /// <returns></returns>
+        private DateTime GetDateTime()
+        {
+            DateTime date = Appointment.Date.GetValueOrDefault();
+
+            DateTime time = Appointment.Time.GetValueOrDefault();
+
+            return new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
+        }
 
         #endregion
 

@@ -10,10 +10,20 @@ namespace EpitafioTattoo.Models
         [Required(ErrorMessage = "Debe ingresar el apellido")]
         public string LastName { get; set; }
 
-        [Required (ErrorMessage = "Debe ingresar el número de télefono")]
+        [Required(ErrorMessage = "Debe ingresar el número de télefono")]
         public string Phone { get; set; }
 
         [Required]
         public string Email { get; set; }
+
+        public Client(string firstName, string lastName, string phone, string email)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Phone = phone;
+            this.Email = email;
+        }
     }
+
+
 }
