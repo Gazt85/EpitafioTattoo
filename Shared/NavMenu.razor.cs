@@ -44,6 +44,13 @@ namespace EpitafioTattoo.Shared
                 case "Agenda":
                     NavigationManager.NavigateTo("/agenda");
                     break;
+
+                case "Blog":
+                    NavigationManager.NavigateTo("/blog");
+                    break;
+                case "Videos":
+                    NavigationManager.NavigateTo("/video");
+                    break;
             }
         }
 
