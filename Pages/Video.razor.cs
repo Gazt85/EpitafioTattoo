@@ -1,8 +1,8 @@
-﻿using EpitafioTattoo.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Data_Transfer_Objects;
 
 namespace EpitafioTattoo.Pages
 {
@@ -10,7 +10,7 @@ namespace EpitafioTattoo.Pages
     {
         #region Properties
 
-        public List<VideoItemModel> VideoItems { get; set; } = new List<VideoItemModel>();
+        public List<VideoDto> VideoItems { get; set; } = new List<VideoDto>();
 
         #endregion
 
@@ -18,7 +18,7 @@ namespace EpitafioTattoo.Pages
 
         protected override void OnInitialized()
         {
-            var video1 = new VideoItemModel
+            var video1 = new VideoDto
             {
                 Title = "Tyranny",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
@@ -28,7 +28,7 @@ namespace EpitafioTattoo.Pages
 
             };
 
-            var video2 = new VideoItemModel
+            var video2 = new VideoDto
             {
                 Title = "Nerium",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional content",
@@ -38,7 +38,7 @@ namespace EpitafioTattoo.Pages
 
             };
 
-            var video3 = new VideoItemModel
+            var video3 = new VideoDto
             {
                 Title = "Whiskey Blues",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
@@ -48,7 +48,7 @@ namespace EpitafioTattoo.Pages
 
             };
 
-            var video4 = new VideoItemModel
+            var video4 = new VideoDto
             {
                 Title = "Bra vs Ger",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
@@ -59,7 +59,7 @@ namespace EpitafioTattoo.Pages
 
             };
 
-            var video5 = new VideoItemModel
+            var video5 = new VideoDto
             {
                 Title = "The Witcher",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
@@ -69,7 +69,7 @@ namespace EpitafioTattoo.Pages
 
             };
 
-            var video6 = new VideoItemModel
+            var video6 = new VideoDto
             {
                 Title = "Breaking Bad",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",

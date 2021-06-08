@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using EpitafioTattoo.Data;
 using Syncfusion.Blazor;
 using Blazored.Modal;
 
@@ -30,7 +29,7 @@ namespace EpitafioTattoo
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            //services.AddSingleton<WeatherForecastService>();
             services.AddSyncfusionBlazor();
             services.AddBlazoredModal();
         }
