@@ -17,6 +17,8 @@ namespace EpitafioTattoo.Shared
         public bool SidebarToggle { get; set; } = false;
         public string piercing { get; set; } = "piercing";
         public string tattoo { get; set; } = "tattoo";
+        public string digitalDesigns { get; set; } = "digitalDesigns";
+        public string paintings { get; set; } = "paintings";
         [Inject] protected NavigationManager NavigationManager { get; set; }
 
         #endregion
