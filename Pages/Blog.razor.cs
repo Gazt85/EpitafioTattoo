@@ -1,9 +1,9 @@
-﻿using EpitafioTattoo.Models;
-using EpitafioTattoo.Shared;
+﻿using EpitafioTattoo.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Data_Transfer_Objects;
 
 namespace EpitafioTattoo.Pages
 {
@@ -11,7 +11,7 @@ namespace EpitafioTattoo.Pages
     {
         #region Members
 
-        public List<BlogItem> BlogItems { get; set; } = new List<BlogItem>();
+        public List<BlogItemDto> BlogItems { get; set; } = new List<BlogItemDto>();
 
         #endregion
 
@@ -19,42 +19,42 @@ namespace EpitafioTattoo.Pages
 
         protected override void OnInitialized()
         {
-            var blog1 = new BlogItem()
+            var blog1 = new BlogItemDto()
             {
                 Title = "Titulo 1",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
                 Date = DateTime.Now
             };
 
-            var blog2 = new BlogItem()
+            var blog2 = new BlogItemDto()
             {
                 Title = "Titulo 2",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
                 Date = new DateTime(2020, 12, 12)
             };
 
-            var blog3 = new BlogItem()
+            var blog3 = new BlogItemDto()
             {
                 Title = "Titulo 3",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
                 Date = new DateTime(2020, 07, 31)
             };
 
-            var blog4 = new BlogItem()
+            var blog4 = new BlogItemDto()
             {
                 Title = "Titulo 4",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
                 Date = new DateTime(2020, 06, 18)
             };
 
-            var blog5 = new BlogItem()
+            var blog5 = new BlogItemDto()
             {
                 Title = "Titulo 5",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",
                 Date = new DateTime(2021, 02, 15)
             };
 
-            var blog6 = new BlogItem()
+            var blog6 = new BlogItemDto()
             {
                 Title = "Titulo 6",
                 Description = "This is a wider card with supporting text below as a natural lead-in to additional content.",

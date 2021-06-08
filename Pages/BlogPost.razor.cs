@@ -1,9 +1,9 @@
-﻿using EpitafioTattoo.Models;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Data_Transfer_Objects;
 
 namespace EpitafioTattoo.Pages
 {
@@ -14,7 +14,7 @@ namespace EpitafioTattoo.Pages
         [Parameter]
         public Guid Id { get; set; }
 
-        public BlogPostModel BlogPostModel { get; set; }
+        public BlogPostDto BlogPostModel { get; set; }
 
         private const string _back = "<< Volver";
 
@@ -26,7 +26,7 @@ namespace EpitafioTattoo.Pages
         {
             //Llamar a backend con el id para obtener el objeto BlogPost
 
-            BlogPostModel = new BlogPostModel
+            BlogPostModel = new BlogPostDto
             {
                 Title = "The Title",
                 Date = DateTime.Now,
