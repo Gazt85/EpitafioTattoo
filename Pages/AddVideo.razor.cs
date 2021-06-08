@@ -1,8 +1,8 @@
-﻿using EpitafioTattoo.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Data_Transfer_Objects;
 
 namespace EpitafioTattoo.Pages
 {
@@ -10,7 +10,7 @@ namespace EpitafioTattoo.Pages
     {
         #region Properties
 
-        public AddVideoModel Model { get; set; }
+        public VideoToInsertDto Model { get; set; } = new VideoToInsertDto();
 
         #endregion
 

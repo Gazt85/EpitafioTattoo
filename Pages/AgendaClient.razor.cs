@@ -1,5 +1,4 @@
-﻿using EpitafioTattoo.Models;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Syncfusion.Blazor.Calendars;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Syncfusion.Blazor.Inputs;
 using System.IO;
+using Entities.Data_Transfer_Objects;
 
 namespace EpitafioTattoo.Pages
 {
@@ -14,7 +14,7 @@ namespace EpitafioTattoo.Pages
     {
         #region Members
 
-        public Appointment Appointment { get; set; } = new Appointment();
+        public AppointmentToInsertDto Appointment { get; set; } = new AppointmentToInsertDto();
         public bool HasPreviousTattoos { get; set; }
         public DirectoryInfo Directory { get; set; }
         public DateTime MinDate { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
@@ -36,9 +36,10 @@ namespace EpitafioTattoo.Pages
 
         protected async Task HandleSubmit()
         {           
-            Appointment.DateAndTime = GetDateTime();
+            //Appointment.DateAndTime = GetDateTime();
+            // Esto se debe hacer en la API.
 
-            var client = new Client(Appointment.FirstName,Appointment.LastName,Appointment.Phone,Appointment.Email);
+            //var client = new ClientDto(Appointment.FirstName,Appointment.LastName,Appointment.Phone,Appointment.Email);
         }        
 
         #endregion

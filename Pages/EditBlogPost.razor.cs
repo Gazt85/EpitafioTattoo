@@ -1,9 +1,10 @@
-﻿using EpitafioTattoo.Models;
+﻿using Entities.Data_Transfer_Objects;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace EpitafioTattoo.Pages
 {
@@ -13,7 +14,7 @@ namespace EpitafioTattoo.Pages
         [Parameter]
         public Guid Id { get; set; }
 
-        public AddBlogPostModel Model { get; set; }
+        public BlogPostToUpdateDto Model { get; set; }
 
 
         #region Life Cycle Methods

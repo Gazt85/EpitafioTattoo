@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Blazored.Modal" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Syncfusion.Blazor" Version="18.3.0.47" />
   </ItemGroup>
 
@@ -13,6 +14,10 @@
     <Folder Include="wwwroot\img\region\" />
     <Folder Include="wwwroot\img\piercing\" />
     <Folder Include="wwwroot\img\tattoo\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
 </Project>

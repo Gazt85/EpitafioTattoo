@@ -1,9 +1,9 @@
-﻿using EpitafioTattoo.Models;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Data_Transfer_Objects;
 
 namespace EpitafioTattoo.Pages
 {
@@ -14,7 +14,7 @@ namespace EpitafioTattoo.Pages
         [Parameter]
         public Guid Id { get; set; }
 
-        public EditVideoModel Model { get; set; }
+        public VideoToInsertDto Model { get; set; }
 
         #endregion
 
