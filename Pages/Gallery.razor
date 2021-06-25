@@ -12,7 +12,7 @@
         Arrastra los archivos aqui
     </div>
 
-    <SfUploader ID="UploadFiles" AutoUpload=false DropArea="#DropArea" DirectoryUpload="false">
+    <SfUploader ID="UploadFiles" AutoUpload=false DropArea="#DropArea" Buttons="@browseBtn" DirectoryUpload="false">
         <UploaderEvents ValueChange="OnChange"></UploaderEvents>
     </SfUploader>
    
@@ -27,12 +27,12 @@
             @foreach (var fileItem in Directory.GetFiles())
             {
                 string imgPath = $"/img/{Subgallery}/{fileItem.Name}";
-                <Thumbnail Source=@imgPath/>
+                <Thumbnail Source=@imgPath Subgallery="@Subgallery" />
             }
         </div>
     }
 </div>
-<style>
+@*<style>
     #DropArea {
         padding: 50px 25px;
         margin: 30px auto;
@@ -56,5 +56,5 @@
         display: inline-flex;
         margin-left: 5%;
     }
-</style>
+</style>*@
 

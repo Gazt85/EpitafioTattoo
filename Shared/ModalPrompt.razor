@@ -1,0 +1,29 @@
+﻿<div class="simple-form">
+    <div class="form-group">
+        @Text
+    </div>
+
+    <button @onclick="Acept" class="btn btn-outline-danger">@AceptOption</button>
+    <button @onclick="Cancel" class="btn btn-primary">@CancelOption</button>
+</div>
+
+@code {
+
+    [CascadingParameter] IModalService Modal { get; set; }
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    [Parameter] public string Text { get; set; }
+    [Parameter] public string AceptOption { get; set; }
+    [Parameter] public string CancelOption { get; set; }
+
+
+    async Task Acept()
+    {       
+        await ModalInstance.CloseAsync(ModalResult.Ok($"{AceptOption}"));
+    }
+
+    void Cancel()
+    {
+        ModalInstance.CloseAsync(ModalResult.Cancel());
+    }
+
+}   

@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\img\digitalDesigns\" />
+    <Folder Include="wwwroot\img\paintings\" />
     <Folder Include="wwwroot\img\region\" />
     <Folder Include="wwwroot\img\piercing\" />
     <Folder Include="wwwroot\img\tattoo\" />

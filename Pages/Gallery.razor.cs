@@ -21,19 +21,16 @@ namespace EpitafioTattoo.Pages
         //public UserManager<IdentityUser> UserManager { get; set; }
         public DirectoryInfo Directory { get; set; }
 
+        private UploaderButtonsProps browseBtn = new UploaderButtonsProps() { Browse = "Explorar", Clear = "Limpiar", Upload = "Subir" };
+
         #endregion
 
         #region LifeCycle Methods        
 
-        protected override void  OnInitialized()
+        protected override void OnInitialized()
         {
             Directory = new DirectoryInfo(@$"{Environment.CurrentDirectory}\wwwroot\img\{Subgallery}");
-        }      
-
-        //public override async Task SetParametersAsync(ParameterView parameters)
-        //{
-        //    await base.SetParametersAsync(parameters);
-        //}
+        }
 
         #endregion
 
@@ -44,10 +41,14 @@ namespace EpitafioTattoo.Pages
             foreach (var file in args.Files)
             {
                 string path = @$"{Directory}\{file.FileInfo.Name}";
-                FileStream filestream = new FileStream(path, FileMode.Create, FileAccess.Write);
-                file.Stream.WriteTo(filestream);
-                filestream.Close();
-                file.Stream.Close();
+
+                if (!File.Exists(Path.Combine(Directory.ToString(), file.FileInfo.Name)))
+                {
+                    FileStream filestream = new FileStream(path, FileMode.Create, FileAccess.Write);
+                    file.Stream.WriteTo(filestream);
+                    filestream.Close();
+                    file.Stream.Close();
+                }
             }
         }
 

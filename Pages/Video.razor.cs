@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.Data_Transfer_Objects;
+using Microsoft.AspNetCore.Components;
 
 namespace EpitafioTattoo.Pages
 {
-    public partial class Video
+    public partial class Video : ComponentBase
     {
         #region Properties
 
         public List<VideoDto> VideoItems { get; set; } = new List<VideoDto>();
+
+        [Inject] protected NavigationManager NavigationManager { get; set; }
 
         #endregion
 
@@ -85,8 +88,16 @@ namespace EpitafioTattoo.Pages
             VideoItems.Add(video4);
             VideoItems.Add(video5);
             VideoItems.Add(video6);
-        }       
+        }
 
+        #endregion
+
+        #region Events
+
+        private void Add()
+        {
+            NavigationManager.NavigateTo($"addvideo");
+        }
 
         #endregion
     }
