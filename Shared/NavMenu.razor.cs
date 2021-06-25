@@ -14,12 +14,14 @@ namespace EpitafioTattoo.Shared
 
         public SfSidebar Sidebar { get; set; }
         public string Target { get; set; } = ".maincontent";
-        public bool SidebarToggle { get; set; } = false;
-        public string piercing { get; set; } = "piercing";
-        public string tattoo { get; set; } = "tattoo";
-        public string digitalDesigns { get; set; } = "digitalDesigns";
-        public string paintings { get; set; } = "paintings";
+        public bool SidebarToggle { get; set; } = false;      
         [Inject] protected NavigationManager NavigationManager { get; set; }
+
+        private const string _piercing = "piercing";
+        private const string _tattoo = "tattoo";
+        private const string _digitalDesigns = "digitalDesigns";
+        private const string _paintings = "paintings";      
+        private const string _merchandising = "merchandising";
 
         #endregion
 
@@ -43,16 +45,31 @@ namespace EpitafioTattoo.Shared
                     NavigationManager.NavigateTo("/index");
                     break;
 
-                case "Agenda":
+                case "Agendarme":
                     NavigationManager.NavigateTo("/agenda");
                     break;
 
                 case "Blog":
                     NavigationManager.NavigateTo("/blog");
                     break;
+
                 case "Videos":
                     NavigationManager.NavigateTo("/video");
                     break;
+
+                case "Merchandising":
+                    NavigationManager.NavigateTo("/loader");
+                    NavigationManager.NavigateTo($"products/{_merchandising}");
+                    break;
+
+                case "Contacto":
+                    NavigationManager.NavigateTo("/contact");
+                    break;
+
+                case "Preguntas Frecuentes":
+                    NavigationManager.NavigateTo("/faq");
+                    break;
+
             }
         }
 
@@ -64,15 +81,32 @@ namespace EpitafioTattoo.Shared
         {
             switch (dest)
             {
-                case "piercing":
+                case _piercing:
                     NavigationManager.NavigateTo("/loader");
-                    NavigationManager.NavigateTo($"gallery/{piercing}");
+                    NavigationManager.NavigateTo($"gallery/{_piercing}");
                     break;
 
-                case "tattoo":
+                case _tattoo:
                     NavigationManager.NavigateTo("/loader");
-                    NavigationManager.NavigateTo($"gallery/{tattoo}");
+                    NavigationManager.NavigateTo($"gallery/{_tattoo}");
                     break;
+
+                case _digitalDesigns:
+                    NavigationManager.NavigateTo("/loader");
+                    NavigationManager.NavigateTo($"products/{_digitalDesigns}");
+                    break;
+
+                case _paintings:
+                    NavigationManager.NavigateTo("/loader");
+                    NavigationManager.NavigateTo($"products/{_paintings}");
+                    break;
+
+                case _merchandising:
+                    NavigationManager.NavigateTo("/loader");
+                    NavigationManager.NavigateTo($"products/{_merchandising}");
+                    break;
+
+
             }
         }
 

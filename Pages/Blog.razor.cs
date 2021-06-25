@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.Data_Transfer_Objects;
+using Microsoft.AspNetCore.Components;
 
 namespace EpitafioTattoo.Pages
 {
-    public partial class Blog
+    public partial class Blog : ComponentBase
     {
         #region Members
 
         public List<BlogItemDto> BlogItems { get; set; } = new List<BlogItemDto>();
+
+        [Inject] protected NavigationManager NavigationManager { get; set; }
 
         #endregion
 
@@ -70,6 +73,15 @@ namespace EpitafioTattoo.Pages
 
             this.BlogItems.OrderByDescending(x => x.Date);
 
+        }
+
+        #endregion
+
+        #region Events
+
+        private void Add()
+        {
+            NavigationManager.NavigateTo($"addblogpost");
         }
 
         #endregion

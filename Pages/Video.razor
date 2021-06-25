@@ -1,6 +1,11 @@
 ﻿@page "/video"
 @layout MainLayout
 
+<h3>Videos</h3>
+<a @onclick="() =>Add()" class="btn btn-primary">Agregar</a>
+
+<hr />
+
 @if (!VideoItems.Any())
 {
     <p>Aún no hay elementos en esta seccion.</p>

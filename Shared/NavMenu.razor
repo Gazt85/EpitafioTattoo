@@ -1,6 +1,4 @@
 ﻿
-
-
 <SfSidebar @ref="Sidebar" Width="280px" @bind-IsOpen="SidebarToggle">
     <ChildContent>
         <span class="e-avatar e-avatar-large image">
@@ -14,12 +12,12 @@
                 <AccordionItem Header="Galería" Expanded="false">
                     <ContentTemplate>
                         <ul>
-                            <li @onclick="() =>Navigate(tattoo)">Tatuajes<span class="e-icons e-content-icon"></span> </li>
-                            <li @onclick="() =>Navigate(piercing)">Piercing<span class="e-icons e-content-icon"></span>  </li>
+                            <li @onclick="() =>Navigate(_tattoo)">Tatuajes<span class="e-icons e-content-icon"></span> </li>
+                            <li @onclick="() =>Navigate(_piercing)">Piercing<span class="e-icons e-content-icon"></span>  </li>
                         </ul>
                     </ContentTemplate>
                 </AccordionItem>
-                <AccordionItem Header="Agenda">
+                <AccordionItem Header="Agendarme">
                     <a href="agenda"> </a>
                 </AccordionItem>
                 <AccordionItem Header="Preguntas Frecuentes">
@@ -31,19 +29,19 @@
                 <AccordionItem Header="Artwork">
                     <ContentTemplate>
                         <ul>
-                            <li @onclick="() =>Navigate(digitalDesigns)"><span>Diseños Digitales</span> </li>
-                            <li @onclick="() =>Navigate(paintings)"><span>Pinturas</span>  </li>
+                            <li @onclick="() =>Navigate(_digitalDesigns)"><span>Diseños Digitales</span> </li>
+                            <li @onclick="() =>Navigate(_paintings)"><span>Pinturas</span>  </li>
                         </ul>
                     </ContentTemplate>
                 </AccordionItem>
                 <AccordionItem Header="Merchandising">
-                    <a href="merchandising"> </a>
+                    <a href="@_merchandising"> </a>
                 </AccordionItem>
                 <AccordionItem Header="Videos">
                     <a href="video"> </a>
                 </AccordionItem>
                 <AccordionItem Header="Contacto">
-                    <a href="contacto"> </a>
+                    <a href="contact"> </a>
                 </AccordionItem>
                 <AccordionItem Header="Login">
                     <a href="login"> </a>

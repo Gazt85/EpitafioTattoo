@@ -1,5 +1,6 @@
 ﻿using Blazored.Modal;
 using Blazored.Modal.Services;
+using Entities.Data_Transfer_Objects;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -8,22 +9,31 @@ using System.Threading.Tasks;
 
 namespace EpitafioTattoo.Shared
 {
-    public partial class Thumbnail : ComponentBase
+    public partial class ProductItem : ComponentBase
     {
-
-        #region Members
-
-
+        #region Properties       
+              
         [Parameter]
-        public string Source { get; set; }
+        public ProductDto Product { get; set; }
 
-        [Parameter]
-        public string Subgallery { get; set; }
+        [Inject] protected NavigationManager NavigationManager { get; set; }
 
         [CascadingParameter] public IModalService Modal { get; set; }
 
-        [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        //Test
+        public List<ProductDto> ProductList { get; set; } = new List<ProductDto>();
+
+        #endregion
+
+        #region LifeCycle Methods        
+
+        protected override void OnInitialized()
+        {
+            if (string.IsNullOrEmpty(Product.ImageSource))
+            {
+                Product.ImageSource = @"img\black.png";
+            }           
+        }
 
         #endregion
 
@@ -41,10 +51,20 @@ namespace EpitafioTattoo.Shared
             // it means the user has deleted the image.
             if (result.Data.Equals("Deleted"))
             {
-                NavigationManager.NavigateTo("/loader");
-                NavigationManager.NavigateTo($"gallery/{Subgallery}");
+                Delete();
             }
 
+        }
+
+        private void Edit()
+        {
+            NavigationManager.NavigateTo($"editproduct/{Product.Id}");
+        }
+
+        private void Delete()
+        {
+            //NavigationManager.NavigateTo("/loader");
+            //NavigationManager.NavigateTo($"products/{Product.ProductType}");
         }
 
         #endregion
@@ -57,8 +77,8 @@ namespace EpitafioTattoo.Shared
         {
             var parameters = new ModalParameters();
 
-            parameters.Add(nameof(ModalCustomImage.Source), Source);
-            parameters.Add(nameof(ModalCustomImage.Subgallery), Subgallery);
+            parameters.Add(nameof(ModalCustomImage.Source), Product.ImageSource);
+            parameters.Add(nameof(ModalCustomImage.Subgallery), Product.ProductType);
 
             return parameters;
         }
@@ -76,10 +96,5 @@ namespace EpitafioTattoo.Shared
                 HideCloseButton = true,
             };
         }
-
-       
     }
-
-
-
 }

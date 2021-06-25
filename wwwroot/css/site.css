@@ -139,6 +139,58 @@ app {
     top: 0.5rem;
 }
 
+/*Text*/
+.align-initial{
+    text-align: initial;
+}
+
+.font20{
+    font-size:20px;
+}
+
+/*End Text*/
+
+/*File Uploader*/
+#wrapper {
+    max-width: 300px;
+    margin: 0px auto;
+    padding-top: 20px;
+}
+
+.tabs-wrap {
+    padding: 0 0px 10px;
+}
+
+.e-bigger .control-section {
+    margin-top: 60px;
+}
+
+#DropArea {
+    padding: 50px 25px;
+    margin: 30px auto;
+    text-align: center;
+    border: 1px solid #c3c3c3;
+    width: 20%;
+    display: inline-flex;
+}
+
+.e-file-select,
+.e-file-drop {
+    display: none;
+}
+
+body .e-upload-drag-hover {
+    outline: 2px dashed brown;
+}
+
+#uploadfile {
+    width: 60%;
+    display: inline-flex;
+    margin-left: 5%;
+}
+
+/*End File Uploader*/
+
 @media (max-width: 767.98px) {
     .main .top-row:not(.auth) {
         display: none;

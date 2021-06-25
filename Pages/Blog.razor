@@ -1,7 +1,9 @@
 ﻿@page "/blog"
 @layout MainLayout
 
-<h3>Blog</h3>
+<h3>Blogs</h3>
+<a @onclick="() =>Add()" class="btn btn-primary">Agregar</a>
+
 <hr />
 
 @if (!BlogItems.Any())

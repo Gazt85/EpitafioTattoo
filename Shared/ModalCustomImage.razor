@@ -2,7 +2,7 @@
     <div class="modal-backdrop fade show" @onclick="Cancel"></div>
     <div class="modal-dialog" style="z-index: 1050">
         <!-- Pop it above the backdrop -->
-        <div class="modal-content overflow-auto" style="width: 700px;height: 700px;">
+        <div class="modal-content overflow-auto" style="width: 700px;height: 600px;">
             <div class="modal-header">
                 <h5 class="modal-title"></h5>
                 <button type="button" class="close" aria-label="Close" @onclick="Close">
@@ -13,19 +13,10 @@
                 <img src=@Source class="img-fluid" />
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" @onclick="Close">Close</button>
+                <button type="button" class="btn btn-danger" @onclick="Delete">Eliminar</button>
+                <button type="button" class="btn btn-secondary" @onclick="Close">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
 
-@code {
-
-    [CascadingParameter] BlazoredModalInstance BlazoredModal { get; set; }
-
-    [Parameter] public string Source { get; set; }
-
-    async Task Close() => await BlazoredModal.CloseAsync(ModalResult.Ok(true));
-    async Task Cancel() => await BlazoredModal.CancelAsync();
-
-}
